@@ -36,19 +36,20 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        // Set toolbar
         setTitle("SCOUTAWAY");
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        // setup tab layout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.addTab(tabLayout.newTab().setText("Scouts"));
         tabLayout.addTab(tabLayout.newTab().setText("Profile"));
         tabLayout.addTab(tabLayout.newTab().setText("Video"));
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.container);
-
         final PagerAdapter adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
@@ -73,9 +74,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
-
- //Floating button Setup
+        // Floating button Setup
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,13 +85,11 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
-
             }
         });
 
 
-        //Drawer Layout Setup
+        // Drawer Layout Setup
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -128,12 +125,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // Automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         Log.d("Denis","Value "+id);
 
-        //noinspection SimplifiableIfStatement
+        // noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             String message1 = "Please check again later, Help is not available at the moment";
             Toast.makeText(MainActivity.this, message1, Toast.LENGTH_LONG).show();

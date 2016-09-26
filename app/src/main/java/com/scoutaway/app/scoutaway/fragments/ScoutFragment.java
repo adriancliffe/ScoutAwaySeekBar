@@ -14,6 +14,7 @@ import com.scoutaway.app.scoutaway.utils.ScoutListAdapter;
 import com.scoutaway.app.scoutaway.data.Scouts;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class ScoutFragment extends Fragment {
 
 
     private ListView listViewScouts;
-    private SeekBar volumeControl = null;
+    private SeekBar listControl = null;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,30 +38,34 @@ public class ScoutFragment extends Fragment {
 
         final List<Scouts> scoutList = new ArrayList<Scouts>();
 
-        scoutList.add(new Scouts("Winter01","denis","Cork","fish"));
-        scoutList.add(new Scouts("GetMeDrunk","denis","Cork","fish"));
-        scoutList.add(new Scouts("Boooooooooo","denis","Cork","fish"));
-        scoutList.add(new Scouts("Winter01","denis","Cork","fish"));
-        scoutList.add(new Scouts("GetMeDrunk","denis","Cork","fish"));
-        scoutList.add(new Scouts("Boooooooooo","denis","Cork","fish"));
-        scoutList.add(new Scouts("Winter01","denis","Cork","fish"));
-        scoutList.add(new Scouts("GetMeDrunk","denis","Cork","fish"));
-        scoutList.add(new Scouts("Boooooooooo","denis","Cork","fish"));
-        scoutList.add(new Scouts("Winter01","denis","Cork","fish"));
-        scoutList.add(new Scouts("GetMeDrunk","denis","Cork","fish"));
-        scoutList.add(new Scouts("Boooooooooo","denis","Cork","fish"));
-        scoutList.add(new Scouts("Winter01","denis","Cork","fish"));
-        scoutList.add(new Scouts("GetMeDrunk","denis","Cork","fish"));
-        scoutList.add(new Scouts("Boooooooooo","denis","Cork","fish"));
+        scoutList.add(new Scouts("Winter01","denis","Cork", 10));
+        scoutList.add(new Scouts("GetMeDrunk","denis","Cork",10));
+        scoutList.add(new Scouts("Boooooooooo","denis","Cork",15));
+        scoutList.add(new Scouts("Winter01","denis","Cork",15));
+        scoutList.add(new Scouts("GetMeDrunk","denis","Cork",20));
+        scoutList.add(new Scouts("Boooooooooo","denis","Cork",20));
+        scoutList.add(new Scouts("Winter01","denis","Cork",25));
+        scoutList.add(new Scouts("GetMeDrunk","denis","Cork",25));
+        scoutList.add(new Scouts("Boooooooooo","denis","Cork",30));
+        scoutList.add(new Scouts("Winter01","denis","Cork",30));
+        scoutList.add(new Scouts("GetMeDrunk","denis","Cork",35));
+        scoutList.add(new Scouts("Boooooooooo","denis","Cork",35));
+        scoutList.add(new Scouts("Winter01","denis","Cork",40));
+        scoutList.add(new Scouts("GetMeDrunk","denis","Cork",40));
+        scoutList.add(new Scouts("Boooooooooo","denis","Cork",45));
+        scoutList.add(new Scouts("Boooooooooo","denis","Cork",45));
+        scoutList.add(new Scouts("Boooooooooo","denis","Cork",50));
+        scoutList.add(new Scouts("Boooooooooo","denis","Cork",50));
+
 
         listViewScouts = (ListView) view.findViewById(R.id.Scouts_List);
 
         listViewScouts.setAdapter( new ScoutListAdapter(getActivity(),R.layout.scout_row, scoutList));
 
 
-        volumeControl = (SeekBar) view.findViewById(R.id.volume_bar);
+        listControl = (SeekBar) view.findViewById(R.id.volume_bar);
 
-        volumeControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        listControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChanged = 0;
 
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
@@ -68,15 +73,25 @@ public class ScoutFragment extends Fragment {
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
-                // TODO Auto-generated method stub
+
+              //  scoutList.removeIf(Scouts -> Scouts.getStatusKM() != progressChanged);
+
+
+              /*  for(Iterator<Scouts> iterator = scoutList.iterator(); iterator.hasNext();)  {
+                    if(iterator.next().getStatusKM() < progressChanged)
+                        iterator.remove();
+                    scoutList.notify();
+                }
+    */
+
+
             }
 
             public void onStopTrackingTouch(SeekBar seekBar) {
 
 
 
-                Toast.makeText(getActivity(),"Distance: "+progressChanged+" KM",
-                        Toast.LENGTH_SHORT).show();
+
             }
         });
 

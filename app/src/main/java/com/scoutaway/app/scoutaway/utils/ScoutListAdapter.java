@@ -1,5 +1,6 @@
 package com.scoutaway.app.scoutaway.utils;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import java.util.List;
 import android.content.Context;
@@ -48,7 +49,8 @@ public class ScoutListAdapter extends ArrayAdapter<Scouts> {
 
 
         ImageView StatusImage = (ImageView) convertView.findViewById(R.id.Status);
-        uri = "drawable/" + scout.getStatus();
+        uri = "drawable/" + scout.getStringStatusKM();
+        Log.v("Denis", ""+scout.getStringStatusKM());
         imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
         image = context.getResources().getDrawable(imageResource);
         StatusImage.setImageDrawable(image);

@@ -8,18 +8,18 @@ public class Scouts {
     private String scoutID;
     private String scoutImage;
     private String location;
-    private String status;
+    private int statusKM;
     private Scouts onlineScout;
 
 
 
 
-    public Scouts(String scoutID, String scoutImage, String location, String status ) {
+    public Scouts(String scoutID, String scoutImage, String location, int statusKM ) {
 
         this.scoutID = scoutID;
         this.scoutImage = scoutImage;
         this.location = location;
-        this.status = status;
+        this.statusKM = statusKM;
 
 
     }
@@ -58,12 +58,21 @@ public class Scouts {
         this.scoutImage = scoutImage;
     }
 
-    public String getStatus() {
-        return status;
+    public int getStatusKM() {
+        return statusKM;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public String getStringStatusKM(){
+
+        int a = this.getStatusKM();
+
+        String b = Integer.toString(a);
+
+        return b;
+    }
+
+    public void setStatusKM(String status) {
+        this.statusKM = statusKM;
     }
 
 
