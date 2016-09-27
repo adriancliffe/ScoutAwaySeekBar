@@ -48,12 +48,12 @@ public class ScoutListAdapter extends ArrayAdapter<Scouts> {
         scoutImage.setImageDrawable(image);
 
 
-        ImageView StatusImage = (ImageView) convertView.findViewById(R.id.Status);
-        uri = "drawable/" + scout.getStringStatusKM();
-        Log.v("Denis", ""+scout.getStringStatusKM());
-        imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
-        image = context.getResources().getDrawable(imageResource);
-        StatusImage.setImageDrawable(image);
+       // ImageView StatusImage = (ImageView) convertView.findViewById(R.id.Status);
+      //  uri = "drawable/" + scout.getStringStatusKM();
+
+       // imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
+       // image = context.getResources().getDrawable(imageResource);
+      //  StatusImage.setImageDrawable(image);
 
 
 

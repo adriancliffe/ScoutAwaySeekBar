@@ -72,22 +72,21 @@ public class ScoutFragment extends Fragment {
                 progressChanged = progress;
             }
 
+            //  Action Seekbar Change onStart
             public void onStartTrackingTouch(SeekBar seekBar) {
 
-              //  scoutList.removeIf(Scouts -> Scouts.getStatusKM() != progressChanged);
+             //  scoutList.removeIf(Scouts -> Scouts.getStatusKM() != progressChanged);
 
 
-              /*  for(Iterator<Scouts> iterator = scoutList.iterator(); iterator.hasNext();)  {
-                    if(iterator.next().getStatusKM() < progressChanged)
-                        iterator.remove();
-                    scoutList.notify();
-                }
-    */
 
 
             }
 
+            //  Action Seekbar Change onStop
             public void onStopTrackingTouch(SeekBar seekBar) {
+
+
+                updateScout(scoutList,progressChanged);
 
 
 
@@ -106,7 +105,14 @@ public class ScoutFragment extends Fragment {
 
 
 
+        public void updateScout(List s, int k){
 
+            for (Iterator<Scouts> iterator = s.iterator(); iterator.hasNext(); ) {
+                if (iterator.next().getStatusKM() < k)
+                    iterator.remove();
+
+            }
+        }
 
 
 

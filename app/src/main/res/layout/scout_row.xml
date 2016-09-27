@@ -13,6 +13,7 @@
         android:padding="3dip"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="5dip">
+
         <ImageView
             android:id="@+id/scoutImage"
             android:layout_width="60dip"
